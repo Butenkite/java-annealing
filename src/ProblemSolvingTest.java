@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+          // Starts with A tests
+
 public class ProblemSolvingTest {
   @Test
   void testAllStartWithA_trueMixedCase() {
@@ -27,13 +29,27 @@ public class ProblemSolvingTest {
     assertFalse(actual);
   }
 
-  // TODO:
-  // Come up with more tests to thoroughly test testAllStartWithA
-  // Suggestions:
-  //  - test an empty set
-  //  - test a set where none start with A
-  //  - test a set with only a single element
-  //  - more you can think of!
+  @Test
+  void testAllStartWithA_trueEmptySet() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertTrue(actual);
+  }
+
+  @Test
+  void testAllStartWithA_falseEmptyStrings() {
+    // arrange
+    Set<String> input = Set.of("", "");
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertFalse(actual);
+  }
+
+              // Empty String tests
 
   @Test
   void testHasEmptyString_falseAllNonEmpty() {
@@ -55,31 +71,82 @@ public class ProblemSolvingTest {
     assertTrue(actual);
   }
 
+  @Test
+  void testHasEmptyString_trueOnlyEmptyString() {
+    // arrange
+    Set<String> input = Set.of("");
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertTrue(actual);
+  }
 
-  // TODO:
-  // Come up with more tests to thoroughly test hasEmptyString
-  // Use your creativity here!
+  @Test
+  void testHasEmptyString_falseEmptySet() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertFalse(actual);
+  }
 
+                // max Length tests
 
   @Test
   void testMaxLength_multipleWords() {
-    // arrange
     Set<String> input = Set.of("by", "a", "commodius", "vicus");
-    // act
     int actual = ProblemSolving.maxLength(input);
-    // assert
     assertEquals(9, actual);
   }
 
+  @Test
+  void testMaxLength_singleWord() {
+    Set<String> input = Set.of("e");
+    int actual = ProblemSolving.maxLength(input);
+    assertEquals(1, actual);
+  }
 
-  // TODO:
-  // Come up with more tests to thoroughly test maxLength
-  // Use your creativity here!
+  @Test
+  void testMaxLength_noWords() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    int actual = ProblemSolving.maxLength(input);
+    // assert
+    assertEquals(0, actual);
+  }
+
+  @Test
+  void testMaxLength_allEmptyStrings() {
+    // arrange
+    Set<String> input = Set.of("", "", "", "");
+    // act
+    int actual = ProblemSolving.maxLength(input);
+    // assert
+    assertEquals(0, actual);
+  }
     
-  
-  // TODO:
-  // Come up with ALL tests to thoroughly test minLength
-  // Use your creativity here, and consider looking back at the maxLength
-  // tests for inspiration
+                // minimum length tests
+                
+  @Test
+  void testMinLength_multipleWords() {
+    Set<String> input = Set.of("appricot", "apple", "ear", "diamond");
+    int actual = ProblemSolving.minLength(input);
+    assertEquals(3, actual);
+  }
 
+  @Test
+  void testMinLength_noWords() {
+    Set<String> input = Set.of();
+    int actual = ProblemSolving.minLength(input);
+    assertEquals(Integer.MAX_VALUE, actual);
+  }
+
+  @Test
+  void testMinLength_oneWord() {
+    Set<String> input = Set.of("appricot");
+    int actual = ProblemSolving.minLength(input);
+    assertEquals(8, actual);
+  }
 }
