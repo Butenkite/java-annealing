@@ -12,7 +12,13 @@ public class ProblemSolving {
    * @return true if every word starts with A (case-insensitive), false otherwise.
    */
   public static boolean allStartWithA(Set<String> words) {
-    return false;
+    // bool: true (this captures empty sets)
+    // for every word in words
+       // if empty string - we dont need to do anything
+       // if starts with lowercase a - we dont need to do anything
+       // if starts with uppercase A - we dont need to do anything
+       // if anything else - we set bool to false
+    // return the bool.
   }
 
   /**
