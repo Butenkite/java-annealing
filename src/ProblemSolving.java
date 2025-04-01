@@ -19,6 +19,7 @@ public class ProblemSolving {
        // if starts with uppercase A - we dont need to do anything
        // if anything else - we set bool to false
     // return the bool.
+    return false;
   }
 
   /**
@@ -30,6 +31,11 @@ public class ProblemSolving {
    * @return true if there is at least one empty string, false otherwise
    */
   public static boolean hasEmptyString(Set<String> words) {
+    // set bool to false (to capture edgecase)
+    // for every word in words
+       // if a string has more than 0 length - we dont do anything
+       // if a string has 0 length, we set bool to true
+    // return bool.
     return false;
   }
 
