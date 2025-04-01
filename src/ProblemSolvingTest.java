@@ -149,4 +149,11 @@ public class ProblemSolvingTest {
     int actual = ProblemSolving.minLength(input);
     assertEquals(8, actual);
   }
+
+  @Test
+  void testMinLength_emptyString() {
+    Set<String> input = Set.of("");
+    int actual = ProblemSolving.minLength(input);
+    assertEquals(0, actual);
+  }
 }
