@@ -48,6 +48,11 @@ public class ProblemSolving {
    * @return the maximum length of a word in the set
    */
   public static int maxLength(Set<String> words) {
+    // set value to 0 (captures edgecase)
+    // for every word in word
+      // if the length of the word is less than the value - do nothing
+      // if the length of the word is more than the value - replace value with length
+    // return value
     return 0;
   }
 
