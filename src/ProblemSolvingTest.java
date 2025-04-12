@@ -39,10 +39,12 @@ public class ProblemSolvingTest {
     assertTrue(actual);
   }
 
+  // test does not actually work because when I send an empty string, it gets upset that the size of the string is 0.
+
   @Test
   void testAllStartWithA_falseEmptyStrings() {
     // arrange
-    Set<String> input = Set.of("", "");
+    Set<String> input = Set.of("");
     // act
     boolean actual = ProblemSolving.allStartWithA(input);
     // assert
@@ -120,7 +122,7 @@ public class ProblemSolvingTest {
   @Test
   void testMaxLength_allEmptyStrings() {
     // arrange
-    Set<String> input = Set.of("", "", "", "");
+    Set<String> input = Set.of("");
     // act
     int actual = ProblemSolving.maxLength(input);
     // assert

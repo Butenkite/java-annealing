@@ -14,7 +14,13 @@ public class ProblemSolving {
   public static boolean allStartWithA(Set<String> words) {
     boolean returnable = true;
     for(String word : words){
-      if(word.charAt(0) != 'a' || word.charAt(0) != 'A'){
+      // two if-else because charAt gets upset if empty string.
+      if(!word.isEmpty()){
+        if((word.charAt(0) != 'a' && word.charAt(0) != 'A')){
+        returnable = false;
+        }
+      }
+      else{
         returnable = false;
       }
     }
@@ -30,12 +36,13 @@ public class ProblemSolving {
    * @return true if there is at least one empty string, false otherwise
    */
   public static boolean hasEmptyString(Set<String> words) {
-    // set bool to false (to capture edgecase)
-    // for every word in words
-       // if a string has more than 0 length - we dont do anything
-       // if a string has 0 length, we set bool to true
-    // return bool.
-    return false;
+    boolean returnable = false;
+    for(String word : words){
+      if(word.isEmpty()){
+        returnable = true;
+      }
+    }
+    return returnable;
   }
 
   /**
@@ -47,12 +54,15 @@ public class ProblemSolving {
    * @return the maximum length of a word in the set
    */
   public static int maxLength(Set<String> words) {
-    // set value to 0 (captures edgecase)
-    // for every word in word
-      // if the length of the word is less than the value - do nothing
-      // if the length of the word is more than the value - replace value with length
-    // return value
-    return 0;
+    int value = 0;
+      for(String word : words){
+        if(!word.isEmpty()){
+          if(word.length() > value){
+            value = word.length();
+          }
+        }
+      }
+    return value;
   }
 
  /**
@@ -64,10 +74,17 @@ public class ProblemSolving {
    * @return the minimum length of a word in the set
    */
   public static int minLength(Set<String> words) {
-    // set value to interger max value
-    // for every word in words
-      // if the length of the string is less than value, replace value with length
-    // return value
-    return Integer.MAX_VALUE;
+    int value = Integer.MAX_VALUE;
+    for(String word : words){
+      if(!word.isEmpty()){
+        if(word.length() < value){
+          value = word.length();
+        }
+      }
+      else{
+        value = 0;
+      }
+    }
+    return value;
   }
 }
